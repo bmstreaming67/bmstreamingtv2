@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BM STREAMING</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0A0A0A;
+      --card:#141414;
+      --primary:#E31B23;
+      --gold:#FFD700;
+      --white:#ffffff;
+      --gray:#bdbdbd;
+      --transition:0.4s ease;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--white);
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      width:100%;
+      backdrop-filter:blur(12px);
+      background:rgba(10,10,10,0.7);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar{
+      max-width:1300px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:1.8rem;
+      font-weight:800;
+      color:var(--white);
+    }
+
+    .logo span{
+      color:var(--primary);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:var(--gray);
+      transition:var(--transition);
+      font-weight:500;
+    }
+
+    .nav-links a:hover{
+      color:var(--gold);
+    }
+
+    .btn{
+      padding:12px 24px;
+      background:var(--primary);
+      border:none;
+      border-radius:12px;
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      transition:var(--transition);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+      background:var(--gold);
+      color:#000;
+    }
+
+    /* SPA Sections */
+    .page-section{
+      display:none;
+      animation:fade .5s ease;
+    }
+
+    .page-section.active{
+      display:block;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* HERO */
+    .hero{
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+      url('https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1800&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero h1 span{
+      color:var(--primary);
+    }
+
+    .hero p{
+      color:var(--gray);
+      font-size:1.1rem;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .btn-outline{
+      background:transparent;
+      border:2px solid var(--gold);
+      color:var(--gold);
+    }
+
+    .btn-outline:hover{
+      background:var(--gold);
+      color:#000;
+    }
+
+    /* DIFFERENTIALS */
+    .container{
+      max-width:1300px;
+      margin:auto;
+      padding:80px 20px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:var(--gray);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:35px;
+      border-radius:20px;
+      transition:var(--transition);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:var(--gold);
+    }
+
+    .card i{
+      font-size:2rem;
+      color:var(--gold);
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:var(--gray);
+    }
+
+    /* DISCOUNT */
+    .discount{
+      margin-top:80px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .discount img{
+      border-radius:20px;
+      height:450px;
+      object-fit:cover;
+    }
+
+    .discount-content h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .discount-content span{
+      color:var(--gold);
+    }
+
+    .discount-content p{
+      color:var(--gray);
+      margin-bottom:25px;
+      line-height:1.8;
+    }
+
+    /* APPS */
+    .apps-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .app-card{
+      background:var(--card);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:var(--transition);
+    }
+
+    .app-card:hover{
+      transform:scale(1.05);
+    }
+
+    .app-card i{
+      font-size:3rem;
+      color:var(--primary);
+      margin-bottom:20px;
+    }
+
+    /* ABOUT */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-image{
+      position:relative;
+    }
+
+    .about-image img{
+      border-radius:25px;
+      height:600px;
+      object-fit:cover;
+    }
+
+    .floating-badge{
+      position:absolute;
+      bottom:30px;
+      left:30px;
+      background:var(--gold);
+      color:#000;
+      padding:18px 24px;
+      border-radius:15px;
+      font-weight:700;
+      box-shadow:0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .about-content h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .about-content p{
+      color:var(--gray);
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .stat{
+      background:var(--card);
+      padding:20px;
+      border-radius:15px;
+      text-align:center;
+    }
+
+    .stat h3{
+      color:var(--gold);
+      font-size:1.8rem;
+    }
+
+    /* EXPERIENCE */
+    .experience{
+      margin-top:80px;
+      background:linear-gradient(135deg,#141414,#1b1b1b);
+      padding:60px 30px;
+      border-radius:25px;
+      text-align:center;
+    }
+
+    .experience h2{
+      font-size:2.8rem;
+      margin-bottom:20px;
+    }
+
+    .experience p{
+      color:var(--gray);
+      margin-bottom:30px;
+    }
+
+    .experience-buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .whatsapp-btn{
+      background:#25D366;
+      color:#fff;
+    }
+
+    .whatsapp-btn:hover{
+      background:#1ebe5d;
+      color:#fff;
+    }
+
+    .notice{
+      margin-top:25px;
+      color:var(--gold);
+      font-size:0.95rem;
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-bottom:40px;
+    }
+
+    .contact-card{
+      background:var(--card);
+      padding:35px;
+      border-radius:20px;
+    }
+
+    .contact-card i{
+      font-size:2rem;
+      color:var(--gold);
+      margin-bottom:20px;
+    }
+
+    .map{
+      width:100%;
+      height:350px;
+      border-radius:20px;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,0.05);
+    }
+
+    .map iframe{
+      width:100%;
+      height:100%;
+      border:none;
+      filter:grayscale(100%) invert(92%);
+    }
+
+    /* FOOTER */
+    footer{
+      background:#050505;
+      padding:50px 20px 30px;
+      margin-top:80px;
+    }
+
+    .footer-content{
+      max-width:1300px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .footer-links a{
+      color:var(--gray);
+      transition:var(--transition);
+    }
+
+    .footer-links a:hover{
+      color:var(--gold);
+    }
+
+    .socials{
+      display:flex;
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .socials a{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      background:var(--card);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:var(--transition);
+    }
+
+    .socials a:hover{
+      background:var(--primary);
+      transform:translateY(-5px);
+    }
+
+    .copyright{
+      text-align:center;
+      margin-top:40px;
+      color:var(--gray);
+      font-size:0.9rem;
+    }
+
+    /* FLOAT WHATS */
+    .float-whats{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:65px;
+      height:65px;
+      background:#25D366;
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      z-index:999;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
+      }
+      50%{
+        transform:scale(1.08);
+      }
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:992px){
+
+      .hero h1{
+        font-size:3rem;
+      }
+
+      .discount,
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .navbar{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:2.4rem;
+      }
+
+      .section-title h2{
+        font-size:2rem;
+      }
+
+      .discount-content h2,
+      .about-content h2,
+      .experience h2{
+        font-size:2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">BM <span>STREAMING</span></div>
+
+      <ul class="nav-links">
+        <li><a href="#" data-page="home">Home</a></li>
+        <li><a href="#" data-page="apps">APLICATIVOS</a></li>
+        <li><a href="#" data-page="sobre">Sobre</a></li>
+        <li><a href="#" data-page="contato">Contato</a></li>
+      </ul>
+
+      <a href="https://wa.me/5567992010343" class="btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        Pedir Agora
+      </a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="page-section active">
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Seu <span>Cinema Particular</span> na Palma da Mão</h1>
+
+        <p>
+          Filmes, séries, esportes e canais ao vivo com máxima qualidade,
+          estabilidade premium e suporte diferenciado.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://wa.me/5567992010343" class="btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Teste Grátis
+          </a>
+
+          <a href="#" class="btn btn-outline">
+            Conhecer Planos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Nossos Diferenciais</h2>
+        <p>Experiência premium em entretenimento digital.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card">
+          <i class="fa-solid fa-tv"></i>
+          <h3>TESTE GRÁTIS</h3>
+          <p>
+            Experimente nossos serviços sem compromisso e descubra
+            a qualidade BM STREAMING.
+          </p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Ultra Estável</h3>
+          <p>
+            Tecnologia avançada para garantir máxima estabilidade
+            durante o uso.
+          </p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-crown"></i>
+          <h3>Qualidade Premium</h3>
+          <p>
+            Conteúdo em alta qualidade com suporte rápido e atendimento VIP.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="discount">
+
+        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=1800&auto=format&fit=crop" alt="Streaming">
+
+        <div class="discount-content">
+          <h2>DESCONTO <span>ESPECIAL</span></h2>
+
+          <p>
+            Assine agora e tenha acesso aos melhores conteúdos com promoções
+            exclusivas para novos clientes. Aproveite planos acessíveis
+            com qualidade premium.
+          </p>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Garantir Promoção
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- APPS -->
+  <section id="apps" class="page-section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>APLICATIVOS</h2>
+        <p>Compatível com diversas plataformas e dispositivos.</p>
+      </div>
+
+      <div class="apps-grid">
+
+        <div class="app-card">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <h3>Android</h3>
+        </div>
+
+        <div class="app-card">
+          <i class="fa-brands fa-apple"></i>
+          <h3>iPhone / iOS</h3>
+        </div>
+
+        <div class="app-card">
+          <i class="fa-solid fa-tv"></i>
+          <h3>Smart TV</h3>
+        </div>
+
+        <div class="app-card">
+          <i class="fa-solid fa-laptop"></i>
+          <h3>PC & Notebook</h3>
+        </div>
+
+        <div class="app-card">
+          <i class="fa-solid fa-gamepad"></i>
+          <h3>TV Box</h3>
+        </div>
+
+        <div class="app-card">
+          <i class="fa-solid fa-wifi"></i>
+          <h3>Streaming Online</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="page-section">
+
+    <div class="container">
+
+      <div class="about">
+
+        <div class="about-image">
+
+          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1800&auto=format&fit=crop" alt="TV">
+
+          <div class="floating-badge">
+            Desde 1985
+          </div>
+
+        </div>
+
+        <div class="about-content">
+
+          <h2>Seu Cinema Particular</h2>
+
+          <p>
+            A BM STREAMING entrega entretenimento premium com estabilidade,
+            velocidade e qualidade incomparável. Transforme sua TV em um
+            verdadeiro portal de diversão.
+          </p>
+
+          <p>
+            Conte com suporte especializado, acesso rápido e milhares de
+            conteúdos disponíveis 24 horas por dia.
+          </p>
+
+          <div class="stats">
+
+            <div class="stat">
+              <h3>+50K</h3>
+              <p>TVs Conectadas</p>
+            </div>
+
+            <div class="stat">
+              <h3>4.9★</h3>
+              <p>Avaliação Média</p>
+            </div>
+
+            <div class="stat">
+              <h3>24h</h3>
+              <p>Suporte Premium</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="experience">
+
+        <h2>Experimente Agora</h2>
+
+        <p>
+          Entre em contato pelo WhatsApp e receba seu acesso rapidamente.
+        </p>
+
+        <div class="experience-buttons">
+
+          <a href="https://wa.me/5567992010343" class="btn whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Chamar no WhatsApp
+          </a>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Solicitar Teste
+          </a>
+
+        </div>
+
+        <div class="notice">
+          Tempo médio de resposta: menos de 5 minutos.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="page-section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contato</h2>
+        <p>Fale com nossa equipe rapidamente.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>Telefone</h3>
+          <p>(67) 99201-0343</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-clock"></i>
+          <h3>Horários</h3>
+          <p>Atendimento 24 horas</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>Localização</h3>
+          <p>Brasil - Atendimento Online</p>
+        </div>
+
+      </div>
+
+      <div class="map">
+        <iframe
+          src="https://maps.google.com/maps?q=Brasil&t=&z=4&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+        <h2>BM STREAMING</h2>
+
+        <p style="color: var(--gray); margin-top:15px;">
+          O melhor do entretenimento premium em um só lugar.
+        </p>
+
+        <div class="socials">
+
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+
+        </div>
+      </div>
+
+      <div>
+
+        <h3>Links Rápidos</h3>
+
+        <div class="footer-links" style="margin-top:15px;">
+          <a href="#">Home</a>
+          <a href="#">APLICATIVOS</a>
+          <a href="#">Sobre</a>
+          <a href="#">Contato</a>
+        </div>
+
+      </div>
+
+      <div>
+
+        <h3>Suporte</h3>
+
+        <div class="footer-links" style="margin-top:15px;">
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Planos</a>
+          <a href="#">Teste Grátis</a>
+          <a href="#">WhatsApp</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 BM STREAMING - Todos os direitos reservados.
+    </div>
+
+  </footer>
+
+  <!-- FLOAT WHATS -->
+  <a href="https://wa.me/5567992010343" class="float-whats">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- JS SPA -->
+  <script>
+
+    const links = document.querySelectorAll('[data-page]');
+    const sections = document.querySelectorAll('.page-section');
+
+    links.forEach(link => {
+
+      link.addEventListener('click', (e) => {
+
+        e.preventDefault();
+
+        const page = link.getAttribute('data-page');
+
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+
+        document.getElementById(page).classList.add('active');
+
+        window.scrollTo({
+          top:0,
+          behavior:'smooth'
+        });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
