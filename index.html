@@ -48,7 +48,6 @@
       display:block;
     }
 
-    /* HEADER */
     header{
       position:sticky;
       top:0;
@@ -71,7 +70,6 @@
     .logo{
       font-size:1.8rem;
       font-weight:800;
-      color:var(--white);
     }
 
     .logo span{
@@ -114,7 +112,6 @@
       color:#000;
     }
 
-    /* SPA Sections */
     .page-section{
       display:none;
       animation:fade .5s ease;
@@ -135,12 +132,11 @@
       }
     }
 
-    /* HERO */
     .hero{
       height:90vh;
       background:
       linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-      url('https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1800&auto=format&fit=crop');
+      url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=1800&auto=format&fit=crop');
       background-size:cover;
       background-position:center;
       display:flex;
@@ -188,7 +184,6 @@
       color:#000;
     }
 
-    /* DIFFERENTIALS */
     .container{
       max-width:1300px;
       margin:auto;
@@ -234,45 +229,110 @@
       margin-bottom:20px;
     }
 
-    .card h3{
-      margin-bottom:12px;
-    }
-
-    .card p{
-      color:var(--gray);
-    }
-
-    /* DISCOUNT */
-    .discount{
+    .plans{
       margin-top:80px;
+    }
+
+    .plans-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
 
-    .discount img{
+    .plan-card{
+      background:var(--card);
       border-radius:20px;
-      height:450px;
-      object-fit:cover;
+      padding:40px 30px;
+      text-align:center;
+      transition:0.4s;
+      border:2px solid transparent;
     }
 
-    .discount-content h2{
-      font-size:3rem;
+    .plan-card:hover{
+      transform:translateY(-10px);
+      border-color:var(--gold);
+    }
+
+    .plan-card h3{
+      font-size:1.6rem;
+      margin-bottom:15px;
+    }
+
+    .plan-price{
+      font-size:2.5rem;
+      color:var(--gold);
+      font-weight:800;
       margin-bottom:20px;
     }
 
-    .discount-content span{
-      color:var(--gold);
-    }
-
-    .discount-content p{
+    .plan-card p{
       color:var(--gray);
       margin-bottom:25px;
-      line-height:1.8;
     }
 
-    /* APPS */
+    .popular{
+      border:2px solid var(--gold);
+      position:relative;
+    }
+
+    .popular::before{
+      content:'MAIS VENDIDO';
+      position:absolute;
+      top:-12px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--gold);
+      color:#000;
+      padding:6px 15px;
+      border-radius:20px;
+      font-size:0.8rem;
+      font-weight:700;
+    }
+
+    .family-section{
+      margin-top:90px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .family-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:25px;
+      height:420px;
+    }
+
+    .family-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .family-card:hover img{
+      transform:scale(1.08);
+    }
+
+    .family-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:30px;
+    }
+
+    .family-overlay h3{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .family-overlay p{
+      color:#ddd;
+    }
+
     .apps-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -297,16 +357,40 @@
       margin-bottom:20px;
     }
 
-    /* ABOUT */
+    .app-card p{
+      color:var(--gray);
+      margin-top:10px;
+      font-size:0.95rem;
+    }
+
+    .brands{
+      margin-top:70px;
+    }
+
+    .brands-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .brand-card{
+      background:var(--card);
+      padding:25px;
+      border-radius:18px;
+      text-align:center;
+      font-weight:600;
+      transition:0.4s;
+    }
+
+    .brand-card:hover{
+      background:var(--primary);
+    }
+
     .about{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:50px;
       align-items:center;
-    }
-
-    .about-image{
-      position:relative;
     }
 
     .about-image img{
@@ -324,18 +408,10 @@
       padding:18px 24px;
       border-radius:15px;
       font-weight:700;
-      box-shadow:0 10px 20px rgba(0,0,0,0.4);
     }
 
-    .about-content h2{
-      font-size:3rem;
-      margin-bottom:20px;
-    }
-
-    .about-content p{
-      color:var(--gray);
-      line-height:1.8;
-      margin-bottom:25px;
+    .about-image{
+      position:relative;
     }
 
     .stats{
@@ -357,49 +433,6 @@
       font-size:1.8rem;
     }
 
-    /* EXPERIENCE */
-    .experience{
-      margin-top:80px;
-      background:linear-gradient(135deg,#141414,#1b1b1b);
-      padding:60px 30px;
-      border-radius:25px;
-      text-align:center;
-    }
-
-    .experience h2{
-      font-size:2.8rem;
-      margin-bottom:20px;
-    }
-
-    .experience p{
-      color:var(--gray);
-      margin-bottom:30px;
-    }
-
-    .experience-buttons{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:20px;
-    }
-
-    .whatsapp-btn{
-      background:#25D366;
-      color:#fff;
-    }
-
-    .whatsapp-btn:hover{
-      background:#1ebe5d;
-      color:#fff;
-    }
-
-    .notice{
-      margin-top:25px;
-      color:var(--gold);
-      font-size:0.95rem;
-    }
-
-    /* CONTACT */
     .contact-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -424,7 +457,6 @@
       height:350px;
       border-radius:20px;
       overflow:hidden;
-      border:2px solid rgba(255,255,255,0.05);
     }
 
     .map iframe{
@@ -434,7 +466,6 @@
       filter:grayscale(100%) invert(92%);
     }
 
-    /* FOOTER */
     footer{
       background:#050505;
       padding:50px 20px 30px;
@@ -457,11 +488,6 @@
 
     .footer-links a{
       color:var(--gray);
-      transition:var(--transition);
-    }
-
-    .footer-links a:hover{
-      color:var(--gold);
     }
 
     .socials{
@@ -478,22 +504,8 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      transition:var(--transition);
     }
 
-    .socials a:hover{
-      background:var(--primary);
-      transform:translateY(-5px);
-    }
-
-    .copyright{
-      text-align:center;
-      margin-top:40px;
-      color:var(--gray);
-      font-size:0.9rem;
-    }
-
-    /* FLOAT WHATS */
     .float-whats{
       position:fixed;
       right:20px;
@@ -508,30 +520,15 @@
       justify-content:center;
       font-size:2rem;
       z-index:999;
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
-      animation:pulse 2s infinite;
     }
 
-    @keyframes pulse{
-      0%{
-        transform:scale(1);
-      }
-      50%{
-        transform:scale(1.08);
-      }
-      100%{
-        transform:scale(1);
-      }
-    }
-
-    /* RESPONSIVE */
     @media(max-width:992px){
 
       .hero h1{
         font-size:3rem;
       }
 
-      .discount,
+      .family-section,
       .about{
         grid-template-columns:1fr;
       }
@@ -560,391 +557,445 @@
       .section-title h2{
         font-size:2rem;
       }
-
-      .discount-content h2,
-      .about-content h2,
-      .experience h2{
-        font-size:2rem;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">BM <span>STREAMING</span></div>
+<header>
+  <nav class="navbar">
 
-      <ul class="nav-links">
-        <li><a href="#" data-page="home">Home</a></li>
-        <li><a href="#" data-page="apps">APLICATIVOS</a></li>
-        <li><a href="#" data-page="sobre">Sobre</a></li>
-        <li><a href="#" data-page="contato">Contato</a></li>
-      </ul>
+    <div class="logo">BM <span>STREAMING</span></div>
 
-      <a href="https://wa.me/5567992010343" class="btn">
-        <i class="fa-brands fa-whatsapp"></i>
-        Pedir Agora
-      </a>
-    </nav>
-  </header>
+    <ul class="nav-links">
+      <li><a href="#" data-page="home">Home</a></li>
+      <li><a href="#" data-page="apps">Aplicativos</a></li>
+      <li><a href="#" data-page="sobre">Sobre</a></li>
+      <li><a href="#" data-page="contato">Contato</a></li>
+    </ul>
 
-  <!-- HOME -->
-  <section id="home" class="page-section active">
+    <a href="https://wa.me/5567992010343" class="btn">
+      <i class="fa-brands fa-whatsapp"></i>
+      Pedir Agora
+    </a>
 
-    <div class="hero">
-      <div class="hero-content">
-        <h1>Seu <span>Cinema Particular</span> na Palma da Mão</h1>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page-section active">
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <h1>Seu <span>Cinema Particular</span> na Palma da Mão</h1>
+
+      <p>
+        Filmes, séries, canais ao vivo, esportes e futebol com máxima qualidade.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="https://wa.me/5567992010343" class="btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          Teste Grátis
+        </a>
+
+        <a href="#planos" class="btn btn-outline">
+          Ver Planos
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Nossos Diferenciais</h2>
+      <p>Experiência premium em entretenimento digital.</p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <i class="fa-solid fa-tv"></i>
+        <h3>Teste Grátis</h3>
+        <p>Experimente nossos serviços sem compromisso.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-wifi"></i>
+        <h3>Ultra Estável</h3>
+        <p>Servidores rápidos e estáveis sem travamentos.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-crown"></i>
+        <h3>Qualidade Premium</h3>
+        <p>Filmes, séries e esportes em alta qualidade.</p>
+      </div>
+
+    </div>
+
+    <!-- PLANOS -->
+    <div class="plans" id="planos">
+
+      <div class="section-title">
+        <h2>Nossos Planos</h2>
+        <p>Escolha o melhor plano para você.</p>
+      </div>
+
+      <div class="plans-grid">
+
+        <div class="plan-card">
+          <h3>Plano Mensal</h3>
+          <div class="plan-price">R$25</div>
+          <p>Acesso completo por 30 dias.</p>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Assinar
+          </a>
+        </div>
+
+        <div class="plan-card popular">
+          <h3>Plano 3 Meses</h3>
+          <div class="plan-price">R$60</div>
+          <p>Economize mais com acesso trimestral.</p>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Assinar
+          </a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Plano 6 Meses</h3>
+          <div class="plan-price">R$120</div>
+          <p>Mais estabilidade e melhor custo benefício.</p>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Assinar
+          </a>
+        </div>
+
+        <div class="plan-card">
+          <h3>Plano Fidelidade</h3>
+          <div class="plan-price">R$360</div>
+          <p>Plano anual com melhor vantagem.</p>
+
+          <a href="https://wa.me/5567992010343" class="btn">
+            Assinar
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGENS -->
+    <div class="family-section">
+
+      <div class="family-card">
+
+        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1800&auto=format&fit=crop">
+
+        <div class="family-overlay">
+          <h3>Entretenimento para Família</h3>
+          <p>Momentos incríveis reunidos na frente da TV.</p>
+        </div>
+
+      </div>
+
+      <div class="family-card">
+
+        <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1800&auto=format&fit=crop">
+
+        <div class="family-overlay">
+          <h3>Futebol Ao Vivo</h3>
+          <p>Assista jogos e comemore cada vitória.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- APLICATIVOS -->
+<section id="apps" class="page-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Aplicativos</h2>
+      <p>Aplicativos compatíveis com nossos serviços.</p>
+    </div>
+
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <i class="fa-solid fa-play"></i>
+        <h3>ASSIST PLUS</h3>
+        <p>Aplicativo rápido e estável.</p>
+      </div>
+
+      <div class="app-card">
+        <i class="fa-solid fa-tv"></i>
+        <h3>BRASIL IPTV</h3>
+        <p>Compatível com diversas TVs.</p>
+      </div>
+
+      <div class="app-card">
+        <i class="fa-solid fa-film"></i>
+        <h3>SUPER PLAY</h3>
+        <p>Filmes, séries e canais ao vivo.</p>
+      </div>
+
+      <div class="app-card">
+        <i class="fa-solid fa-star"></i>
+        <h3>VIZZION PLAY</h3>
+        <p>Interface moderna e rápida.</p>
+      </div>
+
+      <div class="app-card">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <h3>Aplicativo Próprio</h3>
+        <p>Exclusivo BM STREAMING.</p>
+      </div>
+
+    </div>
+
+    <!-- SMART TV -->
+    <div class="brands">
+
+      <div class="section-title">
+        <h2>Smart TVs Compatíveis</h2>
+        <p>Funciona nas principais marcas de TV.</p>
+      </div>
+
+      <div class="brands-grid">
+
+        <div class="brand-card">Samsung TV</div>
+        <div class="brand-card">LG Smart TV</div>
+        <div class="brand-card">Philco TV</div>
+        <div class="brand-card">Philips TV</div>
+        <div class="brand-card">Roku TV</div>
+        <div class="brand-card">Android TV</div>
+        <div class="brand-card">TV Box</div>
+        <div class="brand-card">Notebook & PC</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="page-section">
+
+  <div class="container">
+
+    <div class="about">
+
+      <div class="about-image">
+
+        <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?q=80&w=1800&auto=format&fit=crop">
+
+        <div class="floating-badge">
+          BM STREAMING
+        </div>
+
+      </div>
+
+      <div class="about-content">
+
+        <h2>Seu Cinema Particular</h2>
 
         <p>
-          Filmes, séries, esportes e canais ao vivo com máxima qualidade,
-          estabilidade premium e suporte diferenciado.
+          A BM STREAMING entrega entretenimento premium com estabilidade,
+          velocidade e qualidade incomparável.
         </p>
 
-        <div class="hero-buttons">
-          <a href="https://wa.me/5567992010343" class="btn">
-            <i class="fa-brands fa-whatsapp"></i>
-            Teste Grátis
-          </a>
+        <p>
+          Conte com suporte especializado, acesso rápido e milhares de
+          conteúdos disponíveis 24 horas por dia.
+        </p>
 
-          <a href="#" class="btn btn-outline">
-            Conhecer Planos
-          </a>
-        </div>
-      </div>
-    </div>
+        <div class="stats">
 
-    <div class="container">
+          <div class="stat">
+            <h3>+50K</h3>
+            <p>Clientes</p>
+          </div>
 
-      <div class="section-title">
-        <h2>Nossos Diferenciais</h2>
-        <p>Experiência premium em entretenimento digital.</p>
-      </div>
+          <div class="stat">
+            <h3>4.9★</h3>
+            <p>Avaliação</p>
+          </div>
 
-      <div class="grid-3">
-
-        <div class="card">
-          <i class="fa-solid fa-tv"></i>
-          <h3>TESTE GRÁTIS</h3>
-          <p>
-            Experimente nossos serviços sem compromisso e descubra
-            a qualidade BM STREAMING.
-          </p>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-bolt"></i>
-          <h3>Ultra Estável</h3>
-          <p>
-            Tecnologia avançada para garantir máxima estabilidade
-            durante o uso.
-          </p>
-        </div>
-
-        <div class="card">
-          <i class="fa-solid fa-crown"></i>
-          <h3>Qualidade Premium</h3>
-          <p>
-            Conteúdo em alta qualidade com suporte rápido e atendimento VIP.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="discount">
-
-        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=1800&auto=format&fit=crop" alt="Streaming">
-
-        <div class="discount-content">
-          <h2>DESCONTO <span>ESPECIAL</span></h2>
-
-          <p>
-            Assine agora e tenha acesso aos melhores conteúdos com promoções
-            exclusivas para novos clientes. Aproveite planos acessíveis
-            com qualidade premium.
-          </p>
-
-          <a href="https://wa.me/5567992010343" class="btn">
-            Garantir Promoção
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- APPS -->
-  <section id="apps" class="page-section">
-
-    <div class="container">
-
-      <div class="section-title">
-        <h2>APLICATIVOS</h2>
-        <p>Compatível com diversas plataformas e dispositivos.</p>
-      </div>
-
-      <div class="apps-grid">
-
-        <div class="app-card">
-          <i class="fa-solid fa-mobile-screen"></i>
-          <h3>Android</h3>
-        </div>
-
-        <div class="app-card">
-          <i class="fa-brands fa-apple"></i>
-          <h3>iPhone / iOS</h3>
-        </div>
-
-        <div class="app-card">
-          <i class="fa-solid fa-tv"></i>
-          <h3>Smart TV</h3>
-        </div>
-
-        <div class="app-card">
-          <i class="fa-solid fa-laptop"></i>
-          <h3>PC & Notebook</h3>
-        </div>
-
-        <div class="app-card">
-          <i class="fa-solid fa-gamepad"></i>
-          <h3>TV Box</h3>
-        </div>
-
-        <div class="app-card">
-          <i class="fa-solid fa-wifi"></i>
-          <h3>Streaming Online</h3>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre" class="page-section">
-
-    <div class="container">
-
-      <div class="about">
-
-        <div class="about-image">
-
-          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1800&auto=format&fit=crop" alt="TV">
-
-          <div class="floating-badge">
-            Desde 1985
+          <div class="stat">
+            <h3>24h</h3>
+            <p>Suporte</p>
           </div>
 
         </div>
 
-        <div class="about-content">
-
-          <h2>Seu Cinema Particular</h2>
-
-          <p>
-            A BM STREAMING entrega entretenimento premium com estabilidade,
-            velocidade e qualidade incomparável. Transforme sua TV em um
-            verdadeiro portal de diversão.
-          </p>
-
-          <p>
-            Conte com suporte especializado, acesso rápido e milhares de
-            conteúdos disponíveis 24 horas por dia.
-          </p>
-
-          <div class="stats">
-
-            <div class="stat">
-              <h3>+50K</h3>
-              <p>TVs Conectadas</p>
-            </div>
-
-            <div class="stat">
-              <h3>4.9★</h3>
-              <p>Avaliação Média</p>
-            </div>
-
-            <div class="stat">
-              <h3>24h</h3>
-              <p>Suporte Premium</p>
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
 
-      <div class="experience">
+    </div>
 
-        <h2>Experimente Agora</h2>
+  </div>
 
-        <p>
-          Entre em contato pelo WhatsApp e receba seu acesso rapidamente.
-        </p>
+</section>
 
-        <div class="experience-buttons">
+<!-- CONTATO -->
+<section id="contato" class="page-section">
 
-          <a href="https://wa.me/5567992010343" class="btn whatsapp-btn">
-            <i class="fa-brands fa-whatsapp"></i>
-            Chamar no WhatsApp
-          </a>
+  <div class="container">
 
-          <a href="https://wa.me/5567992010343" class="btn">
-            Solicitar Teste
-          </a>
+    <div class="section-title">
+      <h2>Contato</h2>
+      <p>Fale conosco agora mesmo.</p>
+    </div>
 
-        </div>
+    <div class="contact-grid">
 
-        <div class="notice">
-          Tempo médio de resposta: menos de 5 minutos.
-        </div>
+      <div class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h3>WhatsApp</h3>
+        <p>(67) 99201-0343</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fa-solid fa-clock"></i>
+        <h3>Atendimento</h3>
+        <p>24 horas por dia</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Localização</h3>
+        <p>Atendimento Online Brasil</p>
+      </div>
+
+    </div>
+
+    <div class="map">
+
+      <iframe
+      src="https://maps.google.com/maps?q=Brasil&t=&z=4&ie=UTF8&iwloc=&output=embed">
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-content">
+
+    <div>
+
+      <h2>BM STREAMING</h2>
+
+      <p style="color:var(--gray); margin-top:15px;">
+        O melhor do entretenimento premium.
+      </p>
+
+      <div class="socials">
+
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+        <a href="https://wa.me/5567992010343">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
 
       </div>
 
     </div>
 
-  </section>
+    <div>
 
-  <!-- CONTATO -->
-  <section id="contato" class="page-section">
+      <h3>Links</h3>
 
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contato</h2>
-        <p>Fale com nossa equipe rapidamente.</p>
-      </div>
-
-      <div class="contact-grid">
-
-        <div class="contact-card">
-          <i class="fa-solid fa-phone"></i>
-          <h3>Telefone</h3>
-          <p>(67) 99201-0343</p>
-        </div>
-
-        <div class="contact-card">
-          <i class="fa-solid fa-clock"></i>
-          <h3>Horários</h3>
-          <p>Atendimento 24 horas</p>
-        </div>
-
-        <div class="contact-card">
-          <i class="fa-solid fa-location-dot"></i>
-          <h3>Localização</h3>
-          <p>Brasil - Atendimento Online</p>
-        </div>
-
-      </div>
-
-      <div class="map">
-        <iframe
-          src="https://maps.google.com/maps?q=Brasil&t=&z=4&ie=UTF8&iwloc=&output=embed">
-        </iframe>
+      <div class="footer-links" style="margin-top:15px;">
+        <a href="#">Home</a>
+        <a href="#">Aplicativos</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
       </div>
 
     </div>
 
-  </section>
+    <div>
 
-  <!-- FOOTER -->
-  <footer>
+      <h3>Planos</h3>
 
-    <div class="footer-content">
-
-      <div>
-        <h2>BM STREAMING</h2>
-
-        <p style="color: var(--gray); margin-top:15px;">
-          O melhor do entretenimento premium em um só lugar.
-        </p>
-
-        <div class="socials">
-
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-
-          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-
-        </div>
-      </div>
-
-      <div>
-
-        <h3>Links Rápidos</h3>
-
-        <div class="footer-links" style="margin-top:15px;">
-          <a href="#">Home</a>
-          <a href="#">APLICATIVOS</a>
-          <a href="#">Sobre</a>
-          <a href="#">Contato</a>
-        </div>
-
-      </div>
-
-      <div>
-
-        <h3>Suporte</h3>
-
-        <div class="footer-links" style="margin-top:15px;">
-          <a href="#">Central de Ajuda</a>
-          <a href="#">Planos</a>
-          <a href="#">Teste Grátis</a>
-          <a href="#">WhatsApp</a>
-        </div>
-
+      <div class="footer-links" style="margin-top:15px;">
+        <a href="#">Mensal R$25</a>
+        <a href="#">3 Meses R$60</a>
+        <a href="#">6 Meses R$120</a>
+        <a href="#">Anual R$360</a>
       </div>
 
     </div>
 
-    <div class="copyright">
-      © 2026 BM STREAMING - Todos os direitos reservados.
-    </div>
+  </div>
 
-  </footer>
+  <div style="text-align:center; margin-top:40px; color:var(--gray);">
+    © 2026 BM STREAMING - Todos os direitos reservados.
+  </div>
 
-  <!-- FLOAT WHATS -->
-  <a href="https://wa.me/5567992010343" class="float-whats">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+</footer>
 
-  <!-- JS SPA -->
-  <script>
+<!-- WHATS -->
+<a href="https://wa.me/5567992010343" class="float-whats">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-    const links = document.querySelectorAll('[data-page]');
-    const sections = document.querySelectorAll('.page-section');
+<!-- JS -->
+<script>
 
-    links.forEach(link => {
+  const links = document.querySelectorAll('[data-page]');
+  const sections = document.querySelectorAll('.page-section');
 
-      link.addEventListener('click', (e) => {
+  links.forEach(link => {
 
-        e.preventDefault();
+    link.addEventListener('click', (e) => {
 
-        const page = link.getAttribute('data-page');
+      e.preventDefault();
 
-        sections.forEach(section => {
-          section.classList.remove('active');
-        });
+      const page = link.getAttribute('data-page');
 
-        document.getElementById(page).classList.add('active');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
 
-        window.scrollTo({
-          top:0,
-          behavior:'smooth'
-        });
+      document.getElementById(page).classList.add('active');
 
+      window.scrollTo({
+        top:0,
+        behavior:'smooth'
       });
 
     });
 
-  </script>
+  });
+
+</script>
 
 </body>
 </html>
