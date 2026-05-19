@@ -493,13 +493,7 @@ gtag('config', 'G-86MYZF81J4');
 /* Google Ads */
 gtag('config', 'AW-18170222998');
 
-gtag('event', 'conversion', {
-    'send_to': 'AW-18170222998/3K1UCJ0hsa8cEJaznthD'
-});
-</script>  
 
-
-</script>
 </script>
 </head>
 <body>
@@ -516,9 +510,14 @@ gtag('event', 'conversion', {
       <li><a href="#" data-page="contato">Contato</a></li>
     </ul>
 
-    <a href="https://wa.me/5567992010343" class="btn">
-      <i class="fa-brands fa-whatsapp"></i>
-      Pedir Agora
+    <a href="https://wa.me/5567992010343"
+class="btn"
+onclick="gtag('event','conversion',{
+'send_to':'AW-18170222998/3K1UCJOhsa8cEJaznthD'
+});">
+Pedir Agora
+    
+      
     </a>
 
   </nav>
